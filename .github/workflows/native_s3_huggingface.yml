@@ -22,7 +22,6 @@ jobs:
       - name: Copy files to S3 with the AWS CLI
         shell: bash
         run: |
-          TOKENIZERS_VERSION="$(cat gradle.properties | awk -F '=' '/tokenizers_version/ {print $2}')"
           aws s3 cp s3://djl-misc/spark/libs/vllm-0.0.0-cp39-cp39-linux_x86_64.whl .
           aws s3 cp vllm-0.0.0-cp39-cp39-linux_x86_64.whl s3://djl-ai/publish/vllm/
           aws cloudfront create-invalidation --distribution-id E371VB8JQ6NRVY --paths "/vllm/*"
