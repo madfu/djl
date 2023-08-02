@@ -30,6 +30,6 @@ jobs:
       - name: Copy files to S3 with the AWS CLI
         shell: bash
         run: |
-          curl -O https://raw.githubusercontent.com/xyang16/djl-serving/xyang16-patch-1/vllm-0.1.1-cp39-cp39-linux_x86_64.whl
-          aws s3 cp vllm-0.1.1-cp39-cp39-linux_x86_64.whl s3://djl-ai/publish/vllm/
-          aws cloudfront create-invalidation --distribution-id E371VB8JQ6NRVY --paths "/vllm/*"
+          curl -O https://raw.githubusercontent.com/xyang16/djl-serving/xyang16-patch-2/THIRD-PARTY-LICENSES
+          aws s3 cp THIRD-PARTY-LICENSES s3://djl-ai/publish/dlc-licenses/huggingface/tgi-0.9.3/
+          aws cloudfront create-invalidation --distribution-id E371VB8JQ6NRVY --paths "/dlc-licenses/huggingface/*"
