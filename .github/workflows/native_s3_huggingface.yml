@@ -30,7 +30,14 @@ jobs:
       - name: Copy files to S3 with the AWS CLI
         shell: bash
         run: |
-          curl -O https://publish.djl.ai/lmi_dist/lmi_dist-nightly-py3-none-any.whl
-          mv lmi_dist-nightly-py3-none-any.whl lmi_dist-0.8.2-py3-none-any.whl
-          aws s3 cp lmi_dist-0.8.2-py3-none-any.whl s3://djl-ai/publish/lmi_dist/
+          curl -O https://djl-misc.s3.amazonaws.com/spark/libs/flash_attn-1.0.9-cp39-cp39-linux_x86_64.whl
+          curl -O https://djl-misc.s3.amazonaws.com/spark/libs/dropout_layer_norm-0.1-cp39-cp39-linux_x86_64.whl
+          curl -O https://djl-misc.s3.amazonaws.com/spark/libs/rotary_emb-0.1-cp39-cp39-linux_x86_64.whl
+          curl -O https://djl-misc.s3.amazonaws.com/spark/libs/flash_attn_2-2.0.1-cp39-cp39-linux_x86_64.whl
+          curl -O https://djl-misc.s3.amazonaws.com/spark/libs/vllm-0.1.1-cp39-cp39-linux_x86_64.whl
+          aws s3 cp flash_attn-1.0.9-cp39-cp39-linux_x86_64.whl s3://djl-ai/publish/flash_attn/
+          aws s3 cp dropout_layer_norm-0.1-cp39-cp39-linux_x86_64.whl s3://djl-ai/publish/flash_attn/
+          aws s3 cp rotary_emb-0.1-cp39-cp39-linux_x86_64.whl s3://djl-ai/publish/flash_attn/
+          aws s3 cp flash_attn-2.0.1-cp39-cp39-linux_x86_64.whl s3://djl-ai/publish/flash_attn/
+          aws s3 cp vllm-0.1.1-cp39-cp39-linux_x86_64.whl s3://djl-ai/publish/vllm/
           aws cloudfront create-invalidation --distribution-id E371VB8JQ6NRVY --paths "/lmi_dist/*"
