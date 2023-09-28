@@ -30,6 +30,6 @@ jobs:
       - name: Copy files to S3 with the AWS CLI
         shell: bash
         run: |
-          curl -O https://djl-misc.s3.amazonaws.com/spark/libs/flash_attn_2-2.0.1-cp39-cp39-linux_x86_64.whl
-          aws s3 cp flash_attn-2.0.1-cp39-cp39-linux_x86_64.whl s3://djl-ai/publish/flash_attn/
+          curl -O https://djl-misc.s3.amazonaws.com/spark/libs/flash_attn_2-2.3.0-cp39-cp39-linux_x86_64.whl
+          aws s3 cp flash_attn_2-2.3.0-cp39-cp39-linux_x86_64.whl s3://djl-ai/publish/flash_attn/
           aws cloudfront create-invalidation --distribution-id E371VB8JQ6NRVY --paths "/lmi_dist/*"
